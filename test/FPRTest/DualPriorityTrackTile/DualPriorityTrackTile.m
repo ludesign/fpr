@@ -10,16 +10,12 @@
 
 @interface DualPriorityTrackTile ()
 
-@property (nonatomic, retain) NSString *name;
-
 @property (nonatomic, retain) NSMutableArray *primaryTileIndeces;
 @property (nonatomic, retain) NSMutableArray *secondaryTileIndeces;
 
 @end
 
 @implementation DualPriorityTrackTile
-
-@synthesize name = _name;
 
 - (NSUInteger)nextTileIndex
 {
@@ -48,10 +44,9 @@
 
 - (id)initWithName:(NSString *)tileName primaryTileIndeces:(NSArray *)pTileIndeces secondaryTileIndeces:(NSArray *)sTileIndeces
 {
-    self = [super init];
+    self = [super initWithName:tileName];
     if (self)
     {
-        self.name = tileName;
         self.primaryTileIndeces = [NSMutableArray arrayWithArray:pTileIndeces];
         self.secondaryTileIndeces = [NSMutableArray arrayWithArray:sTileIndeces];
     }

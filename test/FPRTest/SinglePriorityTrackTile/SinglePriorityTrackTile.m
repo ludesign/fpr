@@ -10,15 +10,11 @@
 
 @interface SinglePriorityTrackTile ()
 
-@property (nonatomic, retain) NSString *name;
-
 @property (nonatomic, retain) NSMutableArray *tileIndeces;
 
 @end
 
 @implementation SinglePriorityTrackTile
-
-@synthesize name = _name;
 
 - (NSUInteger)nextTileIndex
 {
@@ -45,10 +41,9 @@
 
 - (id)initWithName:(NSString *)tileName tileIndeces:(NSArray *)tileIndeces
 {
-    self = [super init];
+    self = [super initWithName:tileName];
     if (self)
     {
-        self.name = tileName;
         self.tileIndeces = [NSMutableArray arrayWithArray:tileIndeces];
     }
     return self;

@@ -25,7 +25,7 @@
 
 @protocol TrackLayerInterface <NSObject>
 
-- (void)startMovingWithSpeed:(float)speed;
+- (void)startMoving;
 - (void)stopMoving;
 
 - (void)addObstacle;
@@ -41,5 +41,7 @@
  */
 
 @interface BaseTrackLayer : CCLayer <TrackLayerInterface>
+
+@property (nonatomic, assign) CGFloat bgSpeed;
 
 @end

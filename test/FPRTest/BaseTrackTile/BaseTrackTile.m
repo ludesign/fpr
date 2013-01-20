@@ -8,12 +8,22 @@
 
 #import "BaseTrackTile.h"
 
+@interface BaseTrackTile ()
+
+@property (nonatomic, copy) NSString *name;
+
+@end
+
 @implementation BaseTrackTile
 
-- (NSString *)name
+- (id)initWithName:(NSString *)name
 {
-    [self doesNotRecognizeSelector:_cmd];
-    return nil;
+    self = [super init];
+    if (self)
+    {
+        self.name = name;
+    }
+    return self;
 }
 
 - (NSUInteger)nextTileIndex

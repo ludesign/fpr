@@ -39,7 +39,9 @@ static NSString *trackNames[] = {TRACK_NAME1};
     Class TrackLayerClass = NSClassFromString([NSString stringWithFormat:@"%@TrackLayer", trackNames[trackIndex]]);
     self.trackLayer = [[[TrackLayerClass alloc] init] autorelease];
     [self addChild:_trackLayer];
-    [_trackLayer startMovingWithSpeed:350.0f];
+    
+    _trackLayer.bgSpeed = 350.0f;
+    [_trackLayer startMoving];
 }
 
 #pragma mark - Memory management

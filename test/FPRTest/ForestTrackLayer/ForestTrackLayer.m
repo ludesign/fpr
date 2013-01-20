@@ -27,8 +27,6 @@
 @property (nonatomic, assign) CCSprite *lastSprite;
 @property (nonatomic, retain) NSArray *trackSpritesArray;           // Containing the sprites being moved around in this layer
 
-@property (nonatomic, assign) CGFloat bgSpeed;
-
 @end
 
 @implementation ForestTrackLayer
@@ -44,7 +42,7 @@
 
 - (void)updateBackground:(ccTime)dTime
 {
-    if (_bgSpeed <= 1.0f)
+    if (self.bgSpeed <= 1.0f)
     {
         [self stopMoving];
         return;
@@ -59,14 +57,18 @@
             position.y = _lastSprite.position.y + (_lastSprite.contentSize.height / 2.0f) + (sprite.boundingBox.size.height / 2.0f);
             _lastSprite = sprite;
         }
-        position.y -= dTime * _bgSpeed;
+        position.y -= dTime * self.bgSpeed;
         sprite.position = position;
     }
 }
 
-- (void)startMovingWithSpeed:(float)speed
+- (void)startMoving
 {
-    _bgSpeed = speed;
+    if (1.0f > self.bgSpeed)
+    {
+        return;
+    }
+    
     [self schedule:@selector(updateBackground:)];
 }
 

@@ -10,13 +10,15 @@
 
 @protocol TrackTileInterface <NSObject>
 
-@property (nonatomic, readonly) NSString *name;
-
 - (NSUInteger)nextTileIndex;
 
 @end
 
 
 @interface BaseTrackTile : NSObject <TrackTileInterface>
+
+@property (nonatomic, readonly) NSString *name;
+
+- (id)initWithName:(NSString *)name;
 
 @end
