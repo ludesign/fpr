@@ -7,10 +7,10 @@
 //
 
 #import "TrackScene.h"
-#import "DesertTrackLayer.h"
+#import "ForestTrackLayer.h"
 
 #define TRACKS_COUNT                    1
-#define TRACK_NAME1                     @"Desert"
+#define TRACK_NAME1                     @"Forest"
 
 
 @interface TrackScene ()

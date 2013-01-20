@@ -6,14 +6,14 @@
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 
-#import "DesertTrackLayer.h"
+#import "ForestTrackLayer.h"
 
 #import "TileGraphHandler.h"
 #import "BaseTrackTile.h"
 
 //  Sprite sheet base name for this track
 //  Append with:
-//  .png to get the texture
+//  .png to get the texture atlas
 //  .plist to get the atlas definitions
 //  -def.plist to get the join definitions for each tile
 #define SS_NAME                     @"track_elements"
@@ -21,7 +21,7 @@
 
 @interface ForestTrackLayer ()
 
-@property (nonatomic, retain) CCSpriteBatchNode *spriteBatchNode;
+@property (nonatomic, retain) CCSpriteBatchNode *tilesBatchNode;
 @property (nonatomic, retain) TileGraphHandler *tileGraphHandler;
 
 @property (nonatomic, assign) CCSprite *lastSprite;
@@ -32,6 +32,13 @@
 @end
 
 @implementation ForestTrackLayer
+
+#pragma mark - Obstacles
+
+- (void)addObstacle
+{
+    
+}
 
 #pragma mark - Movement
 
@@ -72,16 +79,17 @@
 
 - (void)dealloc
 {
-    self.spriteBatchNode = nil;
+    self.tilesBatchNode = nil;
     self.tileGraphHandler = nil;
+    self.trackSpritesArray = nil;
     [super dealloc];
 }
 
 - (void)loadSprites
 {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", SS_NAME]];
-    self.spriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", SS_NAME]];
-    [self addChild:_spriteBatchNode];
+    self.tilesBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", SS_NAME]];
+    [self addChild:_tilesBatchNode];
     
     float xCoord = self.contentSize.width / 2.0f;
     float yCoord = 0.0f;
@@ -91,7 +99,7 @@
         CCSprite *tileSprite = [CCSprite spriteWithSpriteFrameName:[_tileGraphHandler nextTile].name];
         tileSprite.position = ccp(xCoord, yCoord + (tileSprite.contentSize.height / 2.0f));
         yCoord += tileSprite.contentSize.height;
-        [_spriteBatchNode addChild:tileSprite];
+        [_tilesBatchNode addChild:tileSprite];
         [mTrackSpritesArray addObject:tileSprite];
         _lastSprite = tileSprite;
     }

@@ -28,6 +28,8 @@
 - (void)startMovingWithSpeed:(float)speed;
 - (void)stopMoving;
 
+- (void)addObstacle;
+
 @end
 
 

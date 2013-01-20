@@ -11,6 +11,11 @@
 
 @implementation BaseTrackLayer
 
+- (void)addObstacle
+{
+    [self doesNotRecognizeSelector:_cmd];
+}
+
 - (void)startMovingWithSpeed:(float)speed
 {
     [self doesNotRecognizeSelector:_cmd];
