@@ -35,21 +35,21 @@
 
 - (void)addObstacle
 {
-    
+    NSLog(@"adding obstacle");
 }
 
 #pragma mark - Mystery crates
 
 - (void)addMysteryCrate
 {
-    
+    NSLog(@"adding mystery crate");
 }
 
 #pragma mark - Movement
 
 - (void)updateBackground:(ccTime)dTime
 {
-    if (self.bgSpeed <= 1.0f)
+    if (1.0f >= self.bgSpeed)
     {
         [self stopMoving];
         return;
@@ -71,7 +71,7 @@
 
 - (void)startMoving
 {
-    if (1.0f > self.bgSpeed)
+    if (1.0f >= self.bgSpeed)
     {
         return;
     }
