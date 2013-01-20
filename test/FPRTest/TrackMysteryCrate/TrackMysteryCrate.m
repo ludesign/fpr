@@ -16,7 +16,7 @@
     self = [super initWithSpriteFrameName:spriteFrameName];
     if (self)
     {
-        
+        _contents = contents;
     }
     return self;
 }
