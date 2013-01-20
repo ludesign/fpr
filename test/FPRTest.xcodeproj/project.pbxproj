@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A57A1C261699C4A60091209A /* TileGraphHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A57A1C251699C4A60091209A /* TileGraphHandler.m */; };
-		A57A1C2B1699CAB80091209A /* DesertTrackLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A57A1C2A1699CAB80091209A /* DesertTrackLayer.m */; };
+		A5A741E416AC68D800815321 /* ForestTrackLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A741E316AC68D800815321 /* ForestTrackLayer.m */; };
 		A5D45F1F168D9E8B00DE9CED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D45F1E168D9E8B00DE9CED /* QuartzCore.framework */; };
 		A5D45F21168D9E8B00DE9CED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D45F20168D9E8B00DE9CED /* OpenGLES.framework */; };
 		A5D45F23168D9E8B00DE9CED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D45F22168D9E8B00DE9CED /* UIKit.framework */; };
@@ -133,8 +133,8 @@
 /* Begin PBXFileReference section */
 		A57A1C241699C4A60091209A /* TileGraphHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileGraphHandler.h; path = TileGraphHandler/TileGraphHandler.h; sourceTree = "<group>"; };
 		A57A1C251699C4A60091209A /* TileGraphHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TileGraphHandler.m; path = TileGraphHandler/TileGraphHandler.m; sourceTree = "<group>"; };
-		A57A1C291699CAB80091209A /* DesertTrackLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesertTrackLayer.h; path = DesertTrackLayer/DesertTrackLayer.h; sourceTree = "<group>"; };
-		A57A1C2A1699CAB80091209A /* DesertTrackLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DesertTrackLayer.m; path = DesertTrackLayer/DesertTrackLayer.m; sourceTree = "<group>"; };
+		A5A741E216AC68D800815321 /* ForestTrackLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForestTrackLayer.h; path = ForestTrackLayer/ForestTrackLayer.h; sourceTree = "<group>"; };
+		A5A741E316AC68D800815321 /* ForestTrackLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForestTrackLayer.m; path = ForestTrackLayer/ForestTrackLayer.m; sourceTree = "<group>"; };
 		A5D45F1A168D9E8B00DE9CED /* FPRTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FPRTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D45F1E168D9E8B00DE9CED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A5D45F20168D9E8B00DE9CED /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -451,7 +451,7 @@
 				A5D460C51698A22200DE9CED /* SinglePriorityTrackTile */,
 				A5D460C11698A16700DE9CED /* BaseTrackTile */,
 				A57A1C231699C48E0091209A /* TileGraphHandler */,
-				A5D460BA169858A100DE9CED /* DesertTrackLayer */,
+				A5D460BA169858A100DE9CED /* ForestTrackLayer */,
 				A5D460B6169855CF00DE9CED /* BaseTrackLayer */,
 				A5D4608A168DF33E00DE9CED /* TrackScene */,
 				A5D46082168D9E8D00DE9CED /* AppDelegate.h */,
@@ -831,13 +831,13 @@
 			name = BaseTrackLayer;
 			sourceTree = "<group>";
 		};
-		A5D460BA169858A100DE9CED /* DesertTrackLayer */ = {
+		A5D460BA169858A100DE9CED /* ForestTrackLayer */ = {
 			isa = PBXGroup;
 			children = (
-				A57A1C291699CAB80091209A /* DesertTrackLayer.h */,
-				A57A1C2A1699CAB80091209A /* DesertTrackLayer.m */,
+				A5A741E216AC68D800815321 /* ForestTrackLayer.h */,
+				A5A741E316AC68D800815321 /* ForestTrackLayer.m */,
 			);
-			name = DesertTrackLayer;
+			name = ForestTrackLayer;
 			sourceTree = "<group>";
 		};
 		A5D460C11698A16700DE9CED /* BaseTrackTile */ = {
@@ -1041,7 +1041,7 @@
 				A5D460C81698A24D00DE9CED /* SinglePriorityTrackTile.m in Sources */,
 				A5D460CC1698A4BC00DE9CED /* DualPriorityTrackTile.m in Sources */,
 				A57A1C261699C4A60091209A /* TileGraphHandler.m in Sources */,
-				A57A1C2B1699CAB80091209A /* DesertTrackLayer.m in Sources */,
+				A5A741E416AC68D800815321 /* ForestTrackLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
