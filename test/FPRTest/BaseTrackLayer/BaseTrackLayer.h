@@ -29,6 +29,7 @@ static const NSUInteger trackSpritesCount = 5;
 - (void)stopMoving;
 
 - (void)addObstacle;
+- (void)addMysteryCrate;
 
 @end
 

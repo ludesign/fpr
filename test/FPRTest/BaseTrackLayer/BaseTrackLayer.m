@@ -16,7 +16,12 @@
     [self doesNotRecognizeSelector:_cmd];
 }
 
-- (void)startMovingWithSpeed:(float)speed
+- (void)addMysteryCrate
+{
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+- (void)startMoving
 {
     [self doesNotRecognizeSelector:_cmd];
 }

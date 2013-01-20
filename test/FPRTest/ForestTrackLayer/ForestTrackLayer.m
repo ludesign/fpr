@@ -38,6 +38,13 @@
     
 }
 
+#pragma mark - Mystery crates
+
+- (void)addMysteryCrate
+{
+    
+}
+
 #pragma mark - Movement
 
 - (void)updateBackground:(ccTime)dTime
@@ -87,7 +94,7 @@
     [super dealloc];
 }
 
-- (void)loadSprites
+- (void)loadTrackTileSprites
 {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", SS_NAME]];
     self.tilesBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", SS_NAME]];
@@ -114,7 +121,7 @@
     if (self)
     {   // Custom initialization
         self.tileGraphHandler = [[[TileGraphHandler alloc] initWithDefFileBaseName:SS_NAME] autorelease];
-        [self loadSprites];
+        [self loadTrackTileSprites];
     }
     return self;
 }

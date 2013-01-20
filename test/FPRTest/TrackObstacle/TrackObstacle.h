@@ -6,7 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "cocos2d.h"
 
 typedef enum {
     TrackObjectTypeSlow = 0,
