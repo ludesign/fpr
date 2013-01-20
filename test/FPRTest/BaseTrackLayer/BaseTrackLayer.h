@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 
 //  Number of sprites being moved around in the layer to simulate endless background
-#define TRACK_SPRITES_COUNT             5
+static const NSUInteger trackSpritesCount = 5;
 
 
 /**

@@ -95,8 +95,8 @@
     
     float xCoord = self.contentSize.width / 2.0f;
     float yCoord = 0.0f;
-    NSMutableArray * mTrackSpritesArray = [NSMutableArray arrayWithCapacity:TRACK_SPRITES_COUNT];
-    for (unsigned i = 0; i < TRACK_SPRITES_COUNT; i++)
+    NSMutableArray * mTrackSpritesArray = [NSMutableArray arrayWithCapacity:trackSpritesCount];
+    for (unsigned i = 0; i < trackSpritesCount; i++)
     {
         CCSprite *tileSprite = [CCSprite spriteWithSpriteFrameName:[_tileGraphHandler nextTile].name];
         tileSprite.position = ccp(xCoord, yCoord + (tileSprite.contentSize.height / 2.0f));
