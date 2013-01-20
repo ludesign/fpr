@@ -1,5 +1,5 @@
 //
-//  DesertTrackLayer.m
+//  ForestTrackLayer.m
 //  FPRTest
 //
 //  Created by Toshko on 1/5/13.
@@ -27,7 +27,7 @@
 @property (nonatomic, assign) CCSprite *lastSprite;
 @property (nonatomic, retain) NSArray *trackSpritesArray;           // Containing the sprites being moved around in this layer
 
-@property (nonatomic, assign) float bgSpeed;
+@property (nonatomic, assign) CGFloat bgSpeed;
 
 @end
 
