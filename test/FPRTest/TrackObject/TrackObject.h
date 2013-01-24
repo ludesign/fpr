@@ -14,11 +14,17 @@ typedef enum {
     TrackObjectTypeCoin
 } TrackObjectType;
 
+typedef enum {
+    TrackObstacleTypeSlow = 0,
+    TrackObstacleTypeStop
+} TrackObstacleType;
+
 @interface TrackObject : CCSprite
 
 @property (nonatomic, readonly) TrackObjectType objectType;
 
-- (id)initWithType:(TrackObjectType)type spriteFrameName:(NSString *)spriteFrameName;
-- (void)reassignType:(TrackObjectType)type spriteFrameName:(NSString *)spriteFrameName; // Track objects will be reused
+// Track objects will be reused
+- (void)setType:(TrackObjectType)type;
+- (void)setSpriteWithName:(NSString *)spriteFrameName;
 
 @end

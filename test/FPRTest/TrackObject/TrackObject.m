@@ -17,20 +17,14 @@
 
 @implementation TrackObject
 
-- (void)reassignType:(TrackObjectType)type spriteFrameName:(NSString *)spriteFrameName
+- (void)setType:(TrackObjectType)type
 {
     _objectType = type;
-    [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:spriteFrameName]];
 }
 
-- (id)initWithType:(TrackObjectType)type spriteFrameName:(NSString *)spriteFrameName
+- (void)setSpriteWithName:(NSString *)spriteFrameName
 {
-    self = [super initWithSpriteFrameName:spriteFrameName];
-    if (self)
-    {
-        _objectType = type;
-    }
-    return self;
+    [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:spriteFrameName]];
 }
 
 @end
