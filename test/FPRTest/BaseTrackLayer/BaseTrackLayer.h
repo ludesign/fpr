@@ -8,6 +8,8 @@
 
 #import "cocos2d.h"
 
+@class TrackObjectsManagerLayer;
+
 //  Number of sprites being moved around in the layer to simulate endless background
 static const NSUInteger trackSpritesCount = 5;
 
@@ -42,6 +44,8 @@ static const NSUInteger trackSpritesCount = 5;
  */
 
 @interface BaseTrackLayer : CCLayer <TrackLayerInterface>
+
+@property (nonatomic, retain) TrackObjectsManagerLayer *trackObjectsLayer;
 
 @property (nonatomic, assign) CGFloat bgSpeed;
 

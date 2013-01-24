@@ -19,7 +19,6 @@ typedef enum {
 @property (nonatomic, readonly) TrackObjectType objectType;
 
 - (id)initWithType:(TrackObjectType)type spriteFrameName:(NSString *)spriteFrameName;
-
-- (void)reassignType:(TrackObjectType)type spriteFrameName:(NSString *)spriteFrameName;
+- (void)reassignType:(TrackObjectType)type spriteFrameName:(NSString *)spriteFrameName; // Track objects will be reused
 
 @end

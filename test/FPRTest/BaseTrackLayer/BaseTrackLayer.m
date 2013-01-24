@@ -31,4 +31,10 @@
     [self doesNotRecognizeSelector:_cmd];
 }
 
+- (void)dealloc
+{
+    self.trackObjectsLayer = nil;
+    [super dealloc];
+}
+
 @end
