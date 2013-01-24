@@ -7,16 +7,23 @@
 //
 
 #import "ForestTrackLayer.h"
-
+#import "TrackObjectsManagerLayer.h"
 #import "TileGraphHandler.h"
 #import "BaseTrackTile.h"
 
-//  Sprite sheet base name for this track
-//  Append with:
-//  .png to get the texture atlas
-//  .plist to get the atlas definitions
-//  -def.plist to get the join definitions for each tile
-#define SS_NAME                     @"track_elements"
+// Sprite sheet base name for this track
+// Append with:
+// .png to get the texture atlas
+// .plist to get the atlas definitions
+// -def.plist to get the join definitions for each tile
+#define TRACK_SS_NAME               @"track_elements"
+
+// Sprite sheet base name for the obstacles for this track
+// Append with:
+// .png to get the texture atlas
+// .plist to get the atlas definitions
+// -def.plist to get the join definitions for each object
+#define OBSTACLES_SS_NAME           @"obstacles"
 
 
 @interface ForestTrackLayer ()
@@ -36,6 +43,7 @@
 - (void)addObstacle
 {
     NSLog(@"adding obstacle");
+    [self.trackObjectsLayer addTrackObjectOfType:TrackObjectTypeObstacle];
 }
 
 #pragma mark - Mystery crates
@@ -43,6 +51,13 @@
 - (void)addMysteryCrate
 {
     NSLog(@"adding mystery crate");
+    [self.trackObjectsLayer addTrackObjectOfType:TrackObjectTypeMysteryCrate];
+}
+
+- (void)addCoin
+{
+    NSLog(@"adding coin");
+    [self.trackObjectsLayer addTrackObjectOfType:TrackObjectTypeCoin];
 }
 
 #pragma mark - Movement
@@ -91,13 +106,14 @@
     self.tilesBatchNode = nil;
     self.tileGraphHandler = nil;
     self.trackSpritesArray = nil;
+    self.trackObjectsLayer = nil;
     [super dealloc];
 }
 
 - (void)loadTrackTileSprites
 {
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", SS_NAME]];
-    self.tilesBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", SS_NAME]];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", TRACK_SS_NAME]];
+    self.tilesBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", TRACK_SS_NAME]];
     [self addChild:_tilesBatchNode];
     
     float xCoord = self.contentSize.width / 2.0f;
@@ -120,8 +136,10 @@
     self = [super init];
     if (self)
     {   // Custom initialization
-        self.tileGraphHandler = [[[TileGraphHandler alloc] initWithDefFileBaseName:SS_NAME] autorelease];
+        self.tileGraphHandler = [[[TileGraphHandler alloc] initWithDefFileBaseName:TRACK_SS_NAME] autorelease];
         [self loadTrackTileSprites];
+        self.trackObjectsLayer = [[[TrackObjectsManagerLayer alloc] initWithSpriteSheetName:OBSTACLES_SS_NAME] autorelease];
+        [self addChild:self.trackObjectsLayer];
     }
     return self;
 }
