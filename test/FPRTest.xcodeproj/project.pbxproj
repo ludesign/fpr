@@ -10,12 +10,11 @@
 		A57A1C261699C4A60091209A /* TileGraphHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A57A1C251699C4A60091209A /* TileGraphHandler.m */; };
 		A5A741E416AC68D800815321 /* ForestTrackLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A741E316AC68D800815321 /* ForestTrackLayer.m */; };
 		A5A741F416ACACF900815321 /* TrackObjectsQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A741F316ACACF900815321 /* TrackObjectsQueue.m */; };
-		A5A741F816ACAD3900815321 /* TrackObjectsManagerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A741F716ACAD3900815321 /* TrackObjectsManagerLayer.m */; };
 		A5A741FC16ACADC100815321 /* TrackObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A741FB16ACADC100815321 /* TrackObject.m */; };
-		A5A7420116B1D56D00815321 /* objects-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A741FD16B1D56C00815321 /* objects-hd.plist */; };
-		A5A7420216B1D56D00815321 /* objects-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A741FE16B1D56C00815321 /* objects-hd.png */; };
-		A5A7420316B1D56D00815321 /* objects.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A741FF16B1D56C00815321 /* objects.plist */; };
-		A5A7420416B1D56D00815321 /* objects.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420016B1D56C00815321 /* objects.png */; };
+		A5A7420916B1DD6D00815321 /* obstacles-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420516B1DD6A00815321 /* obstacles-hd.plist */; };
+		A5A7420A16B1DD6D00815321 /* obstacles-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420616B1DD6A00815321 /* obstacles-hd.png */; };
+		A5A7420B16B1DD6D00815321 /* obstacles.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420716B1DD6B00815321 /* obstacles.plist */; };
+		A5A7420C16B1DD6D00815321 /* obstacles.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420816B1DD6C00815321 /* obstacles.png */; };
 		A5D45F1F168D9E8B00DE9CED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D45F1E168D9E8B00DE9CED /* QuartzCore.framework */; };
 		A5D45F21168D9E8B00DE9CED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D45F20168D9E8B00DE9CED /* OpenGLES.framework */; };
 		A5D45F23168D9E8B00DE9CED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D45F22168D9E8B00DE9CED /* UIKit.framework */; };
@@ -145,13 +144,12 @@
 		A5A741F216ACACF900815321 /* TrackObjectsQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackObjectsQueue.h; path = TrackObjectsQueue/TrackObjectsQueue.h; sourceTree = "<group>"; };
 		A5A741F316ACACF900815321 /* TrackObjectsQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackObjectsQueue.m; path = TrackObjectsQueue/TrackObjectsQueue.m; sourceTree = "<group>"; };
 		A5A741F616ACAD3900815321 /* TrackObjectsManagerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackObjectsManagerLayer.h; sourceTree = "<group>"; };
-		A5A741F716ACAD3900815321 /* TrackObjectsManagerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackObjectsManagerLayer.m; sourceTree = "<group>"; };
 		A5A741FA16ACADC100815321 /* TrackObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackObject.h; path = TrackObject/TrackObject.h; sourceTree = "<group>"; };
 		A5A741FB16ACADC100815321 /* TrackObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackObject.m; path = TrackObject/TrackObject.m; sourceTree = "<group>"; };
-		A5A741FD16B1D56C00815321 /* objects-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "objects-hd.plist"; sourceTree = "<group>"; };
-		A5A741FE16B1D56C00815321 /* objects-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "objects-hd.png"; sourceTree = "<group>"; };
-		A5A741FF16B1D56C00815321 /* objects.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = objects.plist; sourceTree = "<group>"; };
-		A5A7420016B1D56C00815321 /* objects.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = objects.png; sourceTree = "<group>"; };
+		A5A7420516B1DD6A00815321 /* obstacles-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "obstacles-hd.plist"; sourceTree = "<group>"; };
+		A5A7420616B1DD6A00815321 /* obstacles-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "obstacles-hd.png"; sourceTree = "<group>"; };
+		A5A7420716B1DD6B00815321 /* obstacles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = obstacles.plist; sourceTree = "<group>"; };
+		A5A7420816B1DD6C00815321 /* obstacles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obstacles.png; sourceTree = "<group>"; };
 		A5D45F1A168D9E8B00DE9CED /* FPRTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FPRTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D45F1E168D9E8B00DE9CED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A5D45F20168D9E8B00DE9CED /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -444,7 +442,6 @@
 			isa = PBXGroup;
 			children = (
 				A5A741F616ACAD3900815321 /* TrackObjectsManagerLayer.h */,
-				A5A741F716ACAD3900815321 /* TrackObjectsManagerLayer.m */,
 			);
 			path = TrackObjectsManagerLayer;
 			sourceTree = "<group>";
@@ -859,10 +856,10 @@
 		A5D46098168E27A600DE9CED /* atlases */ = {
 			isa = PBXGroup;
 			children = (
-				A5A741FD16B1D56C00815321 /* objects-hd.plist */,
-				A5A741FE16B1D56C00815321 /* objects-hd.png */,
-				A5A741FF16B1D56C00815321 /* objects.plist */,
-				A5A7420016B1D56C00815321 /* objects.png */,
+				A5A7420516B1DD6A00815321 /* obstacles-hd.plist */,
+				A5A7420616B1DD6A00815321 /* obstacles-hd.png */,
+				A5A7420716B1DD6B00815321 /* obstacles.plist */,
+				A5A7420816B1DD6C00815321 /* obstacles.png */,
 				A5D460BF1698688600DE9CED /* track_elements-def.plist */,
 				A5D460A1168E2AFB00DE9CED /* track_elements-hd.plist */,
 				A5D460A2168E2AFB00DE9CED /* track_elements-hd.png */,
@@ -978,10 +975,10 @@
 				A5D460A7168E2AFB00DE9CED /* track_elements.plist in Resources */,
 				A5D460A8168E2AFB00DE9CED /* track_elements.png in Resources */,
 				A5D460C01698688700DE9CED /* track_elements-def.plist in Resources */,
-				A5A7420116B1D56D00815321 /* objects-hd.plist in Resources */,
-				A5A7420216B1D56D00815321 /* objects-hd.png in Resources */,
-				A5A7420316B1D56D00815321 /* objects.plist in Resources */,
-				A5A7420416B1D56D00815321 /* objects.png in Resources */,
+				A5A7420916B1DD6D00815321 /* obstacles-hd.plist in Resources */,
+				A5A7420A16B1DD6D00815321 /* obstacles-hd.png in Resources */,
+				A5A7420B16B1DD6D00815321 /* obstacles.plist in Resources */,
+				A5A7420C16B1DD6D00815321 /* obstacles.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1098,7 +1095,6 @@
 				A57A1C261699C4A60091209A /* TileGraphHandler.m in Sources */,
 				A5A741E416AC68D800815321 /* ForestTrackLayer.m in Sources */,
 				A5A741F416ACACF900815321 /* TrackObjectsQueue.m in Sources */,
-				A5A741F816ACAD3900815321 /* TrackObjectsManagerLayer.m in Sources */,
 				A5A741FC16ACADC100815321 /* TrackObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
