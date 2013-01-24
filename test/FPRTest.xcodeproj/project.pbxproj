@@ -16,6 +16,7 @@
 		A5A7420B16B1DD6D00815321 /* obstacles.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420716B1DD6B00815321 /* obstacles.plist */; };
 		A5A7420C16B1DD6D00815321 /* obstacles.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420816B1DD6C00815321 /* obstacles.png */; };
 		A5A7420E16B1DDCC00815321 /* TrackObjectsManagerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7420D16B1DDCC00815321 /* TrackObjectsManagerLayer.m */; };
+		A5A7421016B1E09B00815321 /* obstacles-def.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420F16B1E09A00815321 /* obstacles-def.plist */; };
 		A5D45F1F168D9E8B00DE9CED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D45F1E168D9E8B00DE9CED /* QuartzCore.framework */; };
 		A5D45F21168D9E8B00DE9CED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D45F20168D9E8B00DE9CED /* OpenGLES.framework */; };
 		A5D45F23168D9E8B00DE9CED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D45F22168D9E8B00DE9CED /* UIKit.framework */; };
@@ -152,6 +153,7 @@
 		A5A7420716B1DD6B00815321 /* obstacles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = obstacles.plist; sourceTree = "<group>"; };
 		A5A7420816B1DD6C00815321 /* obstacles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obstacles.png; sourceTree = "<group>"; };
 		A5A7420D16B1DDCC00815321 /* TrackObjectsManagerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackObjectsManagerLayer.m; sourceTree = "<group>"; };
+		A5A7420F16B1E09A00815321 /* obstacles-def.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "obstacles-def.plist"; sourceTree = "<group>"; };
 		A5D45F1A168D9E8B00DE9CED /* FPRTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FPRTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D45F1E168D9E8B00DE9CED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A5D45F20168D9E8B00DE9CED /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -443,8 +445,8 @@
 		A5A741F516ACAD3900815321 /* TrackObjectsManagerLayer */ = {
 			isa = PBXGroup;
 			children = (
-				A5A7420D16B1DDCC00815321 /* TrackObjectsManagerLayer.m */,
 				A5A741F616ACAD3900815321 /* TrackObjectsManagerLayer.h */,
+				A5A7420D16B1DDCC00815321 /* TrackObjectsManagerLayer.m */,
 			);
 			path = TrackObjectsManagerLayer;
 			sourceTree = "<group>";
@@ -859,6 +861,7 @@
 		A5D46098168E27A600DE9CED /* atlases */ = {
 			isa = PBXGroup;
 			children = (
+				A5A7420F16B1E09A00815321 /* obstacles-def.plist */,
 				A5A7420516B1DD6A00815321 /* obstacles-hd.plist */,
 				A5A7420616B1DD6A00815321 /* obstacles-hd.png */,
 				A5A7420716B1DD6B00815321 /* obstacles.plist */,
@@ -982,6 +985,7 @@
 				A5A7420A16B1DD6D00815321 /* obstacles-hd.png in Resources */,
 				A5A7420B16B1DD6D00815321 /* obstacles.plist in Resources */,
 				A5A7420C16B1DD6D00815321 /* obstacles.png in Resources */,
+				A5A7421016B1E09B00815321 /* obstacles-def.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
