@@ -7,6 +7,7 @@
 //
 
 #import "cocos2d.h"
+#import "TrackObject.h"
 
 @interface TrackObjectsManagerLayer : CCLayer
 
@@ -16,5 +17,7 @@
 @property (nonatomic, assign) CGFloat minDistance;  // Minimum distance to be established between the last object on screen and the next one
 
 - (id)initWithSpriteSheetName:(NSString *)spriteSheetName;
+
+- (void)addTrackObjectOfType:(TrackObjectType)objectType;
 
 @end
