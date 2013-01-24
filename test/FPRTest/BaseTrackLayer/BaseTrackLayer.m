@@ -21,6 +21,11 @@
     [self doesNotRecognizeSelector:_cmd];
 }
 
+- (void)addCoin
+{
+    [self doesNotRecognizeSelector:_cmd];
+}
+
 - (void)startMoving
 {
     [self doesNotRecognizeSelector:_cmd];
