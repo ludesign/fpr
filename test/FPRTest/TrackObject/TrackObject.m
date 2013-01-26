@@ -27,4 +27,14 @@
     [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:spriteFrameName]];
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        _isVisible = YES;
+    }
+    return self;
+}
+
 @end

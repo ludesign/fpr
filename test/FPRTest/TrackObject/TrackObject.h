@@ -21,6 +21,7 @@ typedef enum {
 
 @interface TrackObject : CCSprite
 
+@property (nonatomic, assign) BOOL isVisible;
 @property (nonatomic, readonly) TrackObjectType objectType;
 
 // Track objects will be reused
