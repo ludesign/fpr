@@ -25,9 +25,26 @@
 
 static NSString *trackNames[] = {TRACK_NAME1};
 
+- (void)startAddingObstacles
+{
+    [self addObstacle];
+}
+
+- (void)stopAddingObstacles
+{
+    [[CCDirector sharedDirector].scheduler unscheduleSelector:@selector(addObstacle) forTarget:self];
+}
+
+- (void)addObstacle
+{
+    [_trackLayer addObstacle];
+    ccTime interval = 0.5f + ((float)(arc4random() % RAND_MAX) / RAND_MAX);
+    [[CCDirector sharedDirector].scheduler scheduleSelector:_cmd forTarget:self interval:interval paused:NO]; // This will not create a new schedule - it will only adjust the interval between invokations
+}
+
 - (void)setTrackWithIndex:(NSUInteger)trackIndex
 {
-    NSAssert(trackIndex < TRACKS_COUNT, @"INVALID TRACK INDEX");
+    NSAssert(TRACKS_COUNT > trackIndex, @"INVALID TRACK INDEX");
     
     self.trackIndex = trackIndex;
     
@@ -42,6 +59,8 @@ static NSString *trackNames[] = {TRACK_NAME1};
     
     _trackLayer.bgSpeed = 350.0f;
     [_trackLayer startMoving];
+    
+    [self startAddingObstacles];
 }
 
 #pragma mark - Memory management
