@@ -16,14 +16,14 @@
 // .png to get the texture atlas
 // .plist to get the atlas definitions
 // -def.plist to get the join definitions for each tile
-#define TRACK_SS_NAME               @"track_elements"
+#define TRACK_SS_NAME                   @"track_elements"
 
 // Sprite sheet base name for the obstacles for this track
 // Append with:
 // .png to get the texture atlas
 // .plist to get the atlas definitions
 // -def.plist to get the join definitions for each object
-#define OBSTACLES_SS_NAME           @"obstacles"
+#define OBSTACLES_SS_NAME               @"obstacles"
 
 
 @interface ForestTrackLayer ()
@@ -42,7 +42,6 @@
 
 - (void)addObstacle
 {
-    NSLog(@"adding obstacle");
     [self.trackObjectsLayer addTrackObjectOfType:TrackObjectTypeObstacle];
 }
 
@@ -70,6 +69,7 @@
         return;
     }
     
+    CGFloat offset = dTime * self.bgSpeed;
     for (CCSprite *sprite in _trackSpritesArray)
     {
         CGPoint position = sprite.position;
@@ -79,9 +79,11 @@
             position.y = _lastSprite.position.y + (_lastSprite.contentSize.height / 2.0f) + (sprite.boundingBox.size.height / 2.0f);
             _lastSprite = sprite;
         }
-        position.y -= dTime * self.bgSpeed;
+        position.y -= offset;
         sprite.position = position;
     }
+    
+    [self.trackObjectsLayer updatePositions:offset];
 }
 
 - (void)startMoving
@@ -138,7 +140,10 @@
     {   // Custom initialization
         self.tileGraphHandler = [[[TileGraphHandler alloc] initWithDefFileBaseName:TRACK_SS_NAME] autorelease];
         [self loadTrackTileSprites];
+        
         self.trackObjectsLayer = [[[TrackObjectsManagerLayer alloc] initWithSpriteSheetName:OBSTACLES_SS_NAME] autorelease];
+        self.trackObjectsLayer.centerX = self.contentSize.width / 2.0f;
+        self.trackObjectsLayer.radius = (self.contentSize.width / 2.0f) - 30.0f;
         [self addChild:self.trackObjectsLayer];
     }
     return self;
