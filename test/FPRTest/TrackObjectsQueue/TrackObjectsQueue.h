@@ -13,7 +13,7 @@
 
 @interface TrackObjectsQueue : NSObject
 
-- (void)startTrackingTrackObject:(TrackObject *)trackObject;
+- (void)queueTrackObject:(TrackObject *)trackObject;
 - (TrackObject *)dequeueTrackObject;
 
 @end

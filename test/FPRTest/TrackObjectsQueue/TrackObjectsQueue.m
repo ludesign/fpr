@@ -15,36 +15,20 @@
 
 @interface TrackObjectsQueue ()
 
-@property (nonatomic, retain) NSMutableArray *visibleTrackObjects;
 @property (nonatomic, retain) NSMutableSet *reusableTrackObjects;
 
 @end
 
 @implementation TrackObjectsQueue
 
-- (void)checkTrackObjectsVisibility
+- (void)queueTrackObject:(TrackObject *)trackObject
 {
-    NSUInteger count = [_visibleTrackObjects count];
-    
-    // Not using fast enumeration in order to be able to modify the contents of the array
-    for (unsigned i = 0; i < count; i++)
+    if (nil == trackObject)
     {
-        TrackObject *trObject = _visibleTrackObjects[i];
-        if (trObject.position.y < -(trObject.contentSize.height / 2.0f))
-        {
-            [_reusableTrackObjects addObject:trObject];
-            [_visibleTrackObjects removeObjectAtIndex:i];
-        }
+        return;
     }
-}
-
-- (void)startTrackingTrackObject:(TrackObject *)trackObject
-{
-    [_visibleTrackObjects addObject:trackObject];
-    if (1 == [_visibleTrackObjects count])
-    {   // This is the first object added - start checking for non-visible objects
-        [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(checkTrackObjectsVisibility) forTarget:self interval:UPDATE_INTERVAL paused:NO];
-    }
+    
+    [_reusableTrackObjects addObject:trackObject];
 }
 
 - (TrackObject *)dequeueTrackObject
@@ -56,6 +40,7 @@
     
     TrackObject *trObject = [[_reusableTrackObjects anyObject] retain];
     [_reusableTrackObjects removeObject:trObject];
+    trObject.isVisible = YES;
     return [trObject autorelease];
 }
 
@@ -64,7 +49,6 @@
     self = [super init];
     if (self)
     {
-        self.visibleTrackObjects = [NSMutableArray arrayWithCapacity:INITIAL_CAPACITY];
         self.reusableTrackObjects = [NSMutableSet setWithCapacity:INITIAL_CAPACITY];
     }
     return self;
@@ -72,7 +56,6 @@
 
 - (void)dealloc
 {
-    self.visibleTrackObjects = nil;
     self.reusableTrackObjects = nil;
     [super dealloc];
 }
