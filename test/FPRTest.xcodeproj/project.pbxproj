@@ -10,13 +10,15 @@
 		A57A1C261699C4A60091209A /* TileGraphHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A57A1C251699C4A60091209A /* TileGraphHandler.m */; };
 		A5A741E416AC68D800815321 /* ForestTrackLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A741E316AC68D800815321 /* ForestTrackLayer.m */; };
 		A5A741F416ACACF900815321 /* TrackObjectsQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A741F316ACACF900815321 /* TrackObjectsQueue.m */; };
-		A5A741FC16ACADC100815321 /* TrackObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A741FB16ACADC100815321 /* TrackObject.m */; };
 		A5A7420916B1DD6D00815321 /* obstacles-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420516B1DD6A00815321 /* obstacles-hd.plist */; };
 		A5A7420A16B1DD6D00815321 /* obstacles-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420616B1DD6A00815321 /* obstacles-hd.png */; };
 		A5A7420B16B1DD6D00815321 /* obstacles.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420716B1DD6B00815321 /* obstacles.plist */; };
 		A5A7420C16B1DD6D00815321 /* obstacles.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420816B1DD6C00815321 /* obstacles.png */; };
 		A5A7420E16B1DDCC00815321 /* TrackObjectsManagerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7420D16B1DDCC00815321 /* TrackObjectsManagerLayer.m */; };
 		A5A7421016B1E09B00815321 /* obstacles-def.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A7420F16B1E09A00815321 /* obstacles-def.plist */; };
+		A5A7421416B5323A00815321 /* BaseTrackObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7421316B5323A00815321 /* BaseTrackObject.m */; };
+		A5A7421716B5340E00815321 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7421616B5340E00815321 /* Obstacle.m */; };
+		A5A7421B16B5372800815321 /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7421A16B5372800815321 /* Coin.m */; };
 		A5D45F1F168D9E8B00DE9CED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D45F1E168D9E8B00DE9CED /* QuartzCore.framework */; };
 		A5D45F21168D9E8B00DE9CED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D45F20168D9E8B00DE9CED /* OpenGLES.framework */; };
 		A5D45F23168D9E8B00DE9CED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D45F22168D9E8B00DE9CED /* UIKit.framework */; };
@@ -146,14 +148,18 @@
 		A5A741F216ACACF900815321 /* TrackObjectsQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackObjectsQueue.h; path = TrackObjectsQueue/TrackObjectsQueue.h; sourceTree = "<group>"; };
 		A5A741F316ACACF900815321 /* TrackObjectsQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackObjectsQueue.m; path = TrackObjectsQueue/TrackObjectsQueue.m; sourceTree = "<group>"; };
 		A5A741F616ACAD3900815321 /* TrackObjectsManagerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackObjectsManagerLayer.h; sourceTree = "<group>"; };
-		A5A741FA16ACADC100815321 /* TrackObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackObject.h; path = TrackObject/TrackObject.h; sourceTree = "<group>"; };
-		A5A741FB16ACADC100815321 /* TrackObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackObject.m; path = TrackObject/TrackObject.m; sourceTree = "<group>"; };
 		A5A7420516B1DD6A00815321 /* obstacles-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "obstacles-hd.plist"; sourceTree = "<group>"; };
 		A5A7420616B1DD6A00815321 /* obstacles-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "obstacles-hd.png"; sourceTree = "<group>"; };
 		A5A7420716B1DD6B00815321 /* obstacles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = obstacles.plist; sourceTree = "<group>"; };
 		A5A7420816B1DD6C00815321 /* obstacles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obstacles.png; sourceTree = "<group>"; };
 		A5A7420D16B1DDCC00815321 /* TrackObjectsManagerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackObjectsManagerLayer.m; sourceTree = "<group>"; };
 		A5A7420F16B1E09A00815321 /* obstacles-def.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "obstacles-def.plist"; sourceTree = "<group>"; };
+		A5A7421216B5323A00815321 /* BaseTrackObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTrackObject.h; path = BaseTrackObject/BaseTrackObject.h; sourceTree = "<group>"; };
+		A5A7421316B5323A00815321 /* BaseTrackObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseTrackObject.m; path = BaseTrackObject/BaseTrackObject.m; sourceTree = "<group>"; };
+		A5A7421516B5340E00815321 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Obstacle.h; path = Obstacle/Obstacle.h; sourceTree = "<group>"; };
+		A5A7421616B5340E00815321 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Obstacle.m; path = Obstacle/Obstacle.m; sourceTree = "<group>"; };
+		A5A7421916B5372800815321 /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coin.h; path = Coin/Coin.h; sourceTree = "<group>"; };
+		A5A7421A16B5372800815321 /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Coin.m; path = Coin/Coin.m; sourceTree = "<group>"; };
 		A5D45F1A168D9E8B00DE9CED /* FPRTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FPRTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D45F1E168D9E8B00DE9CED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A5D45F20168D9E8B00DE9CED /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -451,13 +457,31 @@
 			path = TrackObjectsManagerLayer;
 			sourceTree = "<group>";
 		};
-		A5A741F916ACADAE00815321 /* TrackObject */ = {
+		A5A741F916ACADAE00815321 /* BaseTrackObject */ = {
 			isa = PBXGroup;
 			children = (
-				A5A741FA16ACADC100815321 /* TrackObject.h */,
-				A5A741FB16ACADC100815321 /* TrackObject.m */,
+				A5A7421216B5323A00815321 /* BaseTrackObject.h */,
+				A5A7421316B5323A00815321 /* BaseTrackObject.m */,
 			);
-			name = TrackObject;
+			name = BaseTrackObject;
+			sourceTree = "<group>";
+		};
+		A5A7421116B5318100815321 /* Obstacle */ = {
+			isa = PBXGroup;
+			children = (
+				A5A7421516B5340E00815321 /* Obstacle.h */,
+				A5A7421616B5340E00815321 /* Obstacle.m */,
+			);
+			name = Obstacle;
+			sourceTree = "<group>";
+		};
+		A5A7421816B5371000815321 /* Coin */ = {
+			isa = PBXGroup;
+			children = (
+				A5A7421916B5372800815321 /* Coin.h */,
+				A5A7421A16B5372800815321 /* Coin.m */,
+			);
+			name = Coin;
 			sourceTree = "<group>";
 		};
 		A5D45F0F168D9E8B00DE9CED = {
@@ -493,7 +517,9 @@
 		A5D45F2A168D9E8B00DE9CED /* FPRTest */ = {
 			isa = PBXGroup;
 			children = (
-				A5A741F916ACADAE00815321 /* TrackObject */,
+				A5A7421816B5371000815321 /* Coin */,
+				A5A7421116B5318100815321 /* Obstacle */,
+				A5A741F916ACADAE00815321 /* BaseTrackObject */,
 				A5A741F516ACAD3900815321 /* TrackObjectsManagerLayer */,
 				A5A741F116ACACE300815321 /* TrackObjectsQueue */,
 				A5D460C91698A4A000DE9CED /* DualPriorityTrackTile */,
@@ -1102,8 +1128,10 @@
 				A57A1C261699C4A60091209A /* TileGraphHandler.m in Sources */,
 				A5A741E416AC68D800815321 /* ForestTrackLayer.m in Sources */,
 				A5A741F416ACACF900815321 /* TrackObjectsQueue.m in Sources */,
-				A5A741FC16ACADC100815321 /* TrackObject.m in Sources */,
 				A5A7420E16B1DDCC00815321 /* TrackObjectsManagerLayer.m in Sources */,
+				A5A7421416B5323A00815321 /* BaseTrackObject.m in Sources */,
+				A5A7421716B5340E00815321 /* Obstacle.m in Sources */,
+				A5A7421B16B5372800815321 /* Coin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

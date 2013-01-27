@@ -7,7 +7,7 @@
 //
 
 #import "TrackObjectsQueue.h"
-#import "TrackObject.h"
+#import "BaseTrackObject.h"
 
 
 #define INITIAL_CAPACITY                5               // Initial capacity for both the set and the array
@@ -21,7 +21,7 @@
 
 @implementation TrackObjectsQueue
 
-- (void)queueTrackObject:(TrackObject *)trackObject
+- (void)queueTrackObject:(BaseTrackObject *)trackObject
 {
     if (nil == trackObject)
     {
@@ -31,14 +31,14 @@
     [_reusableTrackObjects addObject:trackObject];
 }
 
-- (TrackObject *)dequeueTrackObject
+- (BaseTrackObject *)dequeueTrackObject
 {
     if (0 == [_reusableTrackObjects count])
     {
         return nil;
     }
     
-    TrackObject *trObject = [[_reusableTrackObjects anyObject] retain];
+    BaseTrackObject *trObject = [[_reusableTrackObjects anyObject] retain];
     [_reusableTrackObjects removeObject:trObject];
     trObject.isVisible = YES;
     return [trObject autorelease];

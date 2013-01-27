@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 
-@class TrackObject;
+@class BaseTrackObject;
 
 @interface TrackObjectsQueue : NSObject
 
-- (void)queueTrackObject:(TrackObject *)trackObject;
-- (TrackObject *)dequeueTrackObject;
+- (void)queueTrackObject:(BaseTrackObject *)trackObject;
+- (BaseTrackObject *)dequeueTrackObject;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "cocos2d.h"
-#import "TrackObject.h"
+#import "BaseTrackObject.h"
 
 @interface TrackObjectsManagerLayer : CCLayer
 

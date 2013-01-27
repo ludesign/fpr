@@ -28,7 +28,7 @@
 
 - (void)updatePositions:(CGFloat)offset
 {
-    for (TrackObject *trObject in _objectsArray)
+    for (BaseTrackObject *trObject in _objectsArray)
     {
         if (trObject.position.y <= -(trObject.contentSize.height / 2.0f))
         {
@@ -52,10 +52,10 @@
 
 - (void)addTrackObjectOfType:(TrackObjectType)objectType
 {
-    TrackObject *trObject = [_objectsQueue dequeueTrackObject];
+    BaseTrackObject *trObject = [_objectsQueue dequeueTrackObject];
     if (nil == trObject)
     {
-        trObject = [[[TrackObject alloc] init] autorelease];
+        trObject = [[[BaseTrackObject alloc] init] autorelease];
         [_objectsArray addObject:trObject];
     }
     
@@ -66,7 +66,7 @@
     _lastObject = trObject;
 }
 
-- (void)assignPositionOnTrackObject:(TrackObject *)trObject
+- (void)assignPositionOnTrackObject:(BaseTrackObject *)trObject
 {
     CGPoint objectPosition = ccp(0.0f, (trObject.contentSize.height / 2.0f) + self.contentSize.height);
     CGFloat centerOffset = _radius - (trObject.contentSize.width / 2.0f);
@@ -88,7 +88,7 @@
     trObject.position = objectPosition;
 }
 
-- (void)assignSpriteToTrackObject:(TrackObject *)trObject
+- (void)assignSpriteToTrackObject:(BaseTrackObject *)trObject
 {
     switch (trObject.objectType) {
         case TrackObjectTypeObstacle:
