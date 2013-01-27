@@ -12,4 +12,8 @@
 
 - (id)initWithSubtype:(TrackObjectSubtype)subtype;
 
++ (id)obstacle;
++ (id)slowObstacle;
++ (id)stopObstacle;
+
 @end

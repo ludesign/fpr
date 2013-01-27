@@ -10,6 +10,21 @@
 
 @implementation Obstacle
 
++ (id)obstacle
+{
+    return [[[self alloc] init] autorelease];
+}
+
++ (id)slowObstacle
+{
+    return [[[self alloc] initWithSubtype:TrackObstacleTypeSlow] autorelease];
+}
+
++ (id)stopObstacle
+{
+    return [[[self alloc] initWithSubtype:TrackObstacleTypeStop] autorelease];
+}
+
 - (id)init
 {
     self = [super init];

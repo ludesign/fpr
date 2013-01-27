@@ -12,4 +12,9 @@
 
 - (id)initWithSubtype:(TrackObjectSubtype)subtype;
 
++ (id)coin;
++ (id)copperCoin;
++ (id)silverCoin;
++ (id)goldenCoin;
+
 @end

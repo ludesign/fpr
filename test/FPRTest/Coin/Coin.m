@@ -10,6 +10,26 @@
 
 @implementation Coin
 
++ (id)coin
+{
+    return [[[self alloc] init] autorelease];
+}
+
++ (id)copperCoin
+{
+    return [[[self alloc] initWithSubtype:TrackCoinTypeCopper] autorelease];
+}
+
++ (id)silverCoin
+{
+    return [[[self alloc] initWithSubtype:TrackCoinTypeSilver] autorelease];
+}
+
++ (id)goldenCoin
+{
+    return [[[self alloc] initWithSubtype:TrackCoinTypeGold] autorelease];
+}
+
 - (id)init
 {
     self = [super init];
