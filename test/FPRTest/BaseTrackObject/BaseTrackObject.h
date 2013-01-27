@@ -8,6 +8,9 @@
 
 #import "cocos2d.h"
 
+#define kTrackObstacleSubtypesCount         2
+#define kTrackCoinSubtypesCount             3
+
 typedef enum {
     TrackObjectTypeObstacle = 0,
     TrackObjectTypeMysteryCrate,
@@ -26,7 +29,6 @@ typedef enum {
 
 @interface BaseTrackObject : CCSprite
 
-@property (nonatomic, assign) BOOL isVisible;
 @property (nonatomic, assign) TrackObjectType objectType;
 @property (nonatomic, assign) TrackObjectSubtype objectSubtype;
 

@@ -40,7 +40,6 @@
     
     BaseTrackObject *trObject = [[_reusableTrackObjects anyObject] retain];
     [_reusableTrackObjects removeObject:trObject];
-    trObject.isVisible = YES;
     return [trObject autorelease];
 }
 

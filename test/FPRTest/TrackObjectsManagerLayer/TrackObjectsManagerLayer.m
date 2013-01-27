@@ -8,6 +8,8 @@
 
 #import "TrackObjectsManagerLayer.h"
 #import "TrackObjectsQueue.h"
+#import "Obstacle.h"
+#import "Coin.h"
 
 
 @interface TrackObjectsManagerLayer ()
@@ -16,7 +18,6 @@
 
 @property (nonatomic, retain) NSArray *obstacleNamesArray;
 
-@property (nonatomic, retain) NSMutableArray *objectsArray;
 @property (nonatomic, retain) CCSpriteBatchNode *obstaclesBatchNode;
 @property (nonatomic, assign) CCSprite *lastObject;
 
@@ -28,23 +29,24 @@
 
 - (void)updatePositions:(CGFloat)offset
 {
-    for (BaseTrackObject *trObject in _objectsArray)
-    {
+    NSUInteger objectsCount = [_obstaclesBatchNode.children count];
+    for (unsigned i = 0; i < objectsCount; i++)
+    {   // Using iteration instead of fast enumeration in order to be able to remove children from the batch node which is a big performace boost
+        BaseTrackObject *trObject = [_obstaclesBatchNode.children objectAtIndex:i];
         if (trObject.position.y <= -(trObject.contentSize.height / 2.0f))
         {
-            trObject.isVisible = NO;
             [_objectsQueue queueTrackObject:trObject];
-            [self removeChild:trObject cleanup:NO];
+            [_obstaclesBatchNode removeChild:trObject cleanup:NO];
+            
+            i--;
+            objectsCount--;
             
             continue;
         }
         
-        if ([trObject isVisible])
-        {
-            CGPoint position = trObject.position;
-            position.y -= offset;
-            trObject.position = position;
-        }
+        CGPoint position = trObject.position;
+        position.y -= offset;
+        trObject.position = position;
     }
 }
 
@@ -52,21 +54,14 @@
 
 - (void)addTrackObjectOfType:(TrackObjectType)objectType
 {
-    BaseTrackObject *trObject = [_objectsQueue dequeueTrackObject];
-    if (nil == trObject)
-    {
-        trObject = [[[BaseTrackObject alloc] init] autorelease];
-        [_objectsArray addObject:trObject];
-    }
-    
-    [trObject setType:objectType];
+    BaseTrackObject *trObject = [self trackObjectOfType:objectType];
     [self assignSpriteToTrackObject:trObject];
-    [self assignPositionOnTrackObject:trObject];
-    [self addChild:trObject];
+    [self assignPositionToTrackObject:trObject];
+    [_obstaclesBatchNode addChild:trObject];
     _lastObject = trObject;
 }
 
-- (void)assignPositionOnTrackObject:(BaseTrackObject *)trObject
+- (void)assignPositionToTrackObject:(BaseTrackObject *)trObject
 {
     CGPoint objectPosition = ccp(0.0f, (trObject.contentSize.height / 2.0f) + self.contentSize.height);
     CGFloat centerOffset = _radius - (trObject.contentSize.width / 2.0f);
@@ -90,12 +85,20 @@
 
 - (void)assignSpriteToTrackObject:(BaseTrackObject *)trObject
 {
-    switch (trObject.objectType) {
+    switch (trObject.objectType)
+    {
         case TrackObjectTypeObstacle:
         {
-            NSUInteger spriteIndex = arc4random() % [_obstacleNamesArray count];
-            NSString *spriteName = [_obstacleNamesArray[spriteIndex] objectForKey:@"name"];
+            trObject.objectSubtype = arc4random() % kTrackObstacleSubtypesCount;
+            NSUInteger spriteIndex = arc4random() % [_obstacleNamesArray[trObject.objectSubtype] count];
+            NSString *spriteName = _obstacleNamesArray[trObject.objectSubtype][spriteIndex];
             [trObject setSpriteWithName:spriteName];
+        }
+            break;
+            
+        case TrackObjectTypeCoin:
+        {
+            trObject.objectSubtype = arc4random() % kTrackCoinSubtypesCount;
         }
             break;
             
@@ -103,13 +106,36 @@
             // Not yet
             break;
             
-        case TrackObjectTypeCoin:
-            // Not yet
-            break;
-            
         default:
             break;
     }
+}
+
+- (BaseTrackObject *)trackObjectOfType:(TrackObjectType)objectType
+{
+    BaseTrackObject *trackObject = [_objectsQueue dequeueTrackObject];
+    if (nil == trackObject)
+    {
+        switch (objectType)
+        {
+            case TrackObjectTypeObstacle:
+                trackObject = [Obstacle obstacle];
+                break;
+                
+            case TrackObjectTypeCoin:
+                trackObject = [Coin coin];
+                break;
+                
+            case TrackObjectTypeMysteryCrate:
+                // Not yet
+                break;
+                
+            default:
+                break;
+        }
+    }
+    
+    return trackObject;
 }
 
 #pragma mark - Memory management
@@ -119,8 +145,33 @@
     self.obstaclesBatchNode = nil;
     self.objectsQueue = nil;
     self.obstacleNamesArray = nil;
-    self.objectsArray = nil;
     [super dealloc];
+}
+
+- (void)loadObstacleNamesFromBaseSpriteSheetName:(NSString *)spriteSheetName
+{
+    NSString *defFileName = [NSString stringWithFormat:@"%@-def", spriteSheetName];
+    NSString *obstacleDefsFilePath = [[NSBundle mainBundle] pathForResource:defFileName ofType:@"plist"];
+    NSArray *obstacleDefinitions = [NSArray arrayWithContentsOfFile:obstacleDefsFilePath];
+    
+    NSMutableArray *obstaclesTypeSlow = [NSMutableArray array];
+    NSMutableArray *obstaclesTypeStop = [NSMutableArray array];
+    
+    for (NSDictionary *obstacleDef in obstacleDefinitions)
+    {
+        TrackObjectSubtype type = [[obstacleDef objectForKey:@"type"] integerValue];
+        if (TrackObstacleTypeSlow == type)
+        {
+            [obstaclesTypeSlow addObject:[obstacleDef objectForKey:@"name"]];
+        }
+        else if (TrackObstacleTypeStop == type)
+        {
+            [obstaclesTypeStop addObject:[obstacleDef objectForKey:@"name"]];
+        }
+    }
+    
+    // Order must be the same as the corresponding subtypes are declared
+    self.obstacleNamesArray = @[[NSArray arrayWithArray:obstaclesTypeSlow], [NSArray arrayWithArray:obstaclesTypeStop]];
 }
 
 - (id)initWithSpriteSheetName:(NSString *)spriteSheetName
@@ -134,11 +185,7 @@
         self.obstaclesBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", spriteSheetName]];
         [self addChild:_obstaclesBatchNode];
         
-        NSString *defFileName = [NSString stringWithFormat:@"%@-def", spriteSheetName];
-        NSString *obstaclesDefFilePath = [[NSBundle mainBundle] pathForResource:defFileName ofType:@"plist"];
-        self.obstacleNamesArray = [NSArray arrayWithContentsOfFile:obstaclesDefFilePath];
-        
-        self.objectsArray = [NSMutableArray array];
+        [self loadObstacleNamesFromBaseSpriteSheetName:spriteSheetName];
     }
     return self;
 }

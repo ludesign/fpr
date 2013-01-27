@@ -16,14 +16,10 @@
     [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:spriteFrameName]];
 }
 
-- (id)init
+- (void)dealloc
 {
-    self = [super init];
-    if (self)
-    {
-        _isVisible = YES;
-    }
-    return self;
+    CCLOG(@"DEALLOCATING TRACK OBJECT");
+    [super dealloc];
 }
 
 @end
