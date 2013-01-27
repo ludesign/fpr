@@ -10,4 +10,6 @@
 
 @interface Coin : BaseTrackObject
 
+- (id)initWithSubtype:(TrackObjectSubtype)subtype;
+
 @end

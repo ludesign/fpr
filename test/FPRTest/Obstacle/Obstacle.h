@@ -10,4 +10,6 @@
 
 @interface Obstacle : BaseTrackObject
 
+- (id)initWithSubtype:(TrackObjectSubtype)subtype;
+
 @end

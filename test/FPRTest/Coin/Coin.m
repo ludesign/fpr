@@ -10,4 +10,26 @@
 
 @implementation Coin
 
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        self.objectType = TrackObjectTypeCoin;
+        self.objectSubtype = TrackObjectSubtypeInvalid;
+    }
+    return self;
+}
+
+- (id)initWithSubtype:(TrackObjectSubtype)subtype
+{
+    self = [super init];
+    if (self)
+    {
+        self.objectType = TrackObjectTypeCoin;
+        self.objectSubtype = subtype;
+    }
+    return self;
+}
+
 @end
